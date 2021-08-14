@@ -1,0 +1,13 @@
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 27px;
+  box-sizing: border-box;
+  padding: 0 5px 10px;
+}
+
+.balance .text {
+  cursor: pointer;
+  margin: 0 5px;
+}

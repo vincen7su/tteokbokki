@@ -1,0 +1,65 @@
+.app {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.app .wallet-card {
+  background-color: var(--app-card-color);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.wallet-card .wallet-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-list .title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.wallet-list .wallet-wrap {
+  display: flex;
+}
+
+.app .wallet-status {
+  display: flex;
+}
+
+.wallet-status + .transfer-form {
+  margin-top: 10px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+  height: 38px;
+  box-sizing: border-box;
+  transition: background-color .3s;
+}
+
+.block.clickable {
+  cursor: pointer;
+}
+
+.block:hover {
+  background-color: #373838;
+}
+
+.network + .wallet {
+  margin-left: 10px;
+}

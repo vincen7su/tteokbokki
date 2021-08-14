@@ -1,0 +1,13 @@
+.network {
+  position: relative;
+  min-width: 80px;
+}
+
+.network .network-label {
+  justify-content: center;
+  color: var(--app-highlight-color);
+}
+
+.network-label.error {
+  color: #ff4343;
+}

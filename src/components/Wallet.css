@@ -1,0 +1,28 @@
+.wallet {
+  display: flex;
+  align-items: center;
+}
+
+.wallet .label {
+  letter-spacing: 1px;
+}
+
+.wallet .icon + .label {
+  margin-left: 5px;
+}
+
+.wallet .icon-copy {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.icon-copy:hover {
+  color: #e8e8e8;
+}
+
+.icon-copy:active {
+  color: white;
+}

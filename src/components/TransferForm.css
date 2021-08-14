@@ -1,0 +1,64 @@
+.transfer-form {
+  position: relative;
+}
+
+.transfer-form.pending:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  content: '';
+}
+
+.transfer-form .form-input {
+  background-color: #474848;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-size: 16px;
+  flex: 1;
+}
+
+.transfer-form .row-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transfer-form .row-wrap + .row-wrap {
+  margin-top: 20px;
+}
+
+.transfer-form .token {
+  margin-right: 10px;
+}
+
+.transfer-form .send-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #606161;
+  padding: 15px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  transition: background-color .3s, opacity .3s;
+  cursor: not-allowed;
+}
+
+.send-button.valid {
+  cursor: pointer;
+  background-color: var(--app-highlight-color);
+  opacity: 0.8;
+}
+
+.send-button.valid:hover {
+  opacity: 1;
+}
