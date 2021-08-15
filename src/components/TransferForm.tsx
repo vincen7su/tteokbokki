@@ -7,10 +7,11 @@ import Balance from './Balance'
 import Token from './Token'
 import { useActiveWeb3React } from '../hooks/useActiveWeb3React'
 import { ABI, CUSTOM_TOKEN, TOKEN_LIST, TOKEN_MAP } from '../constants/tokens'
+import { ERROR_CHAIN_ID, NETWORK_LABEL_MAP } from '../constants/chains'
 import './TransferForm.css'
 
-export default function TransferForm({ isWrongNetwork }: { isWrongNetwork: boolean }) {
-  const { account, library, chainId } = useActiveWeb3React()
+export default function TransferForm() {
+  const { account, library, chainId = ERROR_CHAIN_ID } = useActiveWeb3React()
   const [ contract, setContract ] = useState<Contract | undefined>()
   const [ balance, setBalance ] = useState('')
   const [ forceUpdateBalance, setForceUpdateBalance ] = useState(false)
@@ -146,6 +147,7 @@ export default function TransferForm({ isWrongNetwork }: { isWrongNetwork: boole
     })) : Promise.resolve()
   }, [contract, account, address, amount, tokenDecimals, sendTransaction])
 
+  const isWrongNetwork = !NETWORK_LABEL_MAP[chainId]
   const amountValid = amount && balance && Number(amount) <= Number(balance)
   const isValid = !isWrongNetwork && !isWaitingConfirmation && amountValid && address
   const validClass = isValid ? 'valid' : ''

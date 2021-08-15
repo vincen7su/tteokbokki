@@ -70,7 +70,7 @@ function App() {
                   onClick={ () => setShowWalletList(true) }
                 />
               </div>
-              <TransferForm isWrongNetwork={ isWrongNetwork } />
+              <TransferForm />
             </>
           : <div className="wallet-list">
               <div className="title">Select a Wallet</div>
