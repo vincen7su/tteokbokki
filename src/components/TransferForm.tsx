@@ -117,15 +117,16 @@ export default function TransferForm({ isWrongNetwork }: { isWrongNetwork: boole
 
   const transferEth = useCallback(() => {
     return library && account ? Promise.all([
+      library.getBalance(account),
       library.getGasPrice(),
       library.estimateGas({
         to: account,
         data: '0x'
-      })
-    ]).then(([ gasPrice, gasLimit ]) => {
-      const gasFee = gasPrice.mul(gasLimit).add(parseUnits('1', 'gwei'))
+      }),
+    ]).then(([ balance, gasPrice, gasLimit ]) => {
+      const gasFee = gasPrice.mul(gasLimit)
       const total = BigNumber.from(parseEther(amount))
-      const netAmount = total.sub(gasFee)
+      const netAmount = balance.gte(total.add(gasFee)) ? total : balance.sub(gasFee)
       return sendTransaction({
         from: account,
         to: address,
